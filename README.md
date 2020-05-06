@@ -1300,7 +1300,7 @@ var   StudentName = "PUT"
   #### 正例
   ```go
   func uploadFile() {
-    // 一看就知道是上传文件的方法
+      // 一看就知道是上传文件的方法
   }
   ```
 
