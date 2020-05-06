@@ -1315,12 +1315,12 @@ var   StudentName = "PUT"
 // 方法签名超过了IDE的竖线，阅读代码时需使用滚动条
 func upload(id int64, uploadType UploadType, key string, filename string, outputFilename string, name string) (err error) {
   log.WithFields(log.Fields{
-      "id":             id,
-      "filename":       filename,
-      "outputFilename": outputFilename,
-      "uploadType":     uploadType,
-      "key":            key,
-      "name":           name,
+    "id":             id,
+    "filename":       filename,
+    "outputFilename": outputFilename,
+    "uploadType":     uploadType,
+    "key":            key,
+    "name":           name,
   }).Info("开始上传文件")
 }
 ```
@@ -1339,12 +1339,12 @@ func upload(
 ) (err error) {
   // 方法调用也适用于换行
   log.WithFields(log.Fields{
-      "id":             id,
-      "filename":       filename,
-      "outputFilename": outputFilename,
-      "uploadType":     uploadType,
-      "key":            key,
-      "name":           name,
+  "id":             id,
+    "filename":       filename,
+    "outputFilename": outputFilename,
+     "uploadType":     uploadType,
+    "key":            key,
+    "name":           name,
   }).Info("开始上传文件")
 }
 ```
