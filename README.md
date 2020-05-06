@@ -13,7 +13,7 @@
   - [枚举从1开始](#枚举从1开始)
   - [使用`"time"`处理时间](#使用time处理时间)
   - [错误类型](#错误类型)
-  - [错误包装(Error Wrapping)](#错误包装(Error Wrapping))
+  - [错误包装](#错误包装
   - [处理类型断言失败](#处理类型断言失败)
   - [不要panic](#不要panic)
   - [使用go.uber.org/atomic](#使用go.uber.org/atomic)
@@ -42,7 +42,7 @@
   - [本地变量声明](#本地变量声明)
   - [nil是一个有效的slice](#nil是一个有效的slice)
   - [小变量作用域](#小变量作用域)
-  - [避免参数语义不明确（Avoid Naked Parameters）](#避免参数语义不明确(Avoid Naked Parameters))
+  - [避免参数语义不明确](#避免参数语义不明确)
   - [使用原始字符串字面值，避免转义](#使用原始字符串字面值，避免转义)
   - [初始化Struct引用](#初始化Struct引用)
   - [初始化Maps](#初始化Maps)
@@ -738,7 +738,7 @@ if err := foo.Open("foo"); err != nil {
 }
 ```
 
-### 错误包装(Error Wrapping)
+### 错误包装
 
 一个（函数/方法）调用失败时，有三种主要的错误传播方式
 
@@ -1932,7 +1932,7 @@ fmt.Println(cfg)
 return nil
 ```
 
-### 避免参数语义不明确(Avoid Naked Parameters)
+### 避免参数语义不明确
 
 函数调用中的`意义不明确的参数`可能会损害可读性。当参数名称的含义不明显时，请为参数添加 C 样式注释 (`/* ... */`)
 
