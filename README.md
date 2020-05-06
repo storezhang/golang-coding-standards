@@ -1338,16 +1338,15 @@ func upload(
   name string,
 ) (err error) {
   // 方法调用也适用于换行
-	log.WithFields(log.Fields{
-		"id":             id,
-		"filename":       filename,
-		"outputFilename": outputFilename,
-		"uploadType":     uploadType,
-		"key":            key,
-		"name":           name,
+  log.WithFields(log.Fields{
+    "id":             id,
+    "filename":       filename,
+    "outputFilename": outputFilename,
+    "uploadType":     uploadType,
+    "key":            key,
+    "name":           name,
   }).Info("开始上传文件")
 }
-
 ```
 
 注意：如果意义相近，可以将实参或者形参放在一起成对出现（参看[写出好代码的基本原则](#写出好代码的基本原则)里面的代码要有段落感）
