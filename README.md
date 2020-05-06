@@ -25,12 +25,13 @@
   - [尽量初始化时指定Map容量](#尽量初始化时指定Map容量)
 - [规范](#规范)
   - [项目命名规范](#项目命名规范)
+  - [源码文件规范](#源码文件规范)
   - [合理使用空格](#合理使用空格)
   - [注释](#注释)
   - [相似的声明放在一组](#相似的声明放在一组)
   - [导入分组](#导入分组)
   - [包名](#包名)
-  - [函数名](#函数名)
+  - [方法](#方法)
   - [换行](#换行)
   - [导入别名](#导入别名)
   - [函数分组与顺序](#函数分组与顺序)
@@ -1163,6 +1164,14 @@ for _, f := range files {
 - 项目名称使用使用小写字母
 - 单词之间使用中划线`-`连接
 
+### 源码文件规范
+
+对于源码文件，有如下参考
+
+- 全部使用小写字符
+- 使用下划线`_`来连接各个单词
+- **每个源文件末尾留出一空白行**（原因是在Linux/Unix等文本环境下可以很方便的跳到文件的末尾）
+
 ### 合理使用空格
 
 合理的使用空格，能使代码更具有阅读性
@@ -1271,11 +1280,29 @@ var   StudentName = "PUT"
   [Package Names]: https://blog.golang.org/package-names
   [Go 包样式指南]: https://rakyll.org/style-packages/
 
-### 函数名
+### 方法
 
-我们遵循Go社区关于使用[MixedCaps 作为函数名]的约定。有一个例外，为了对相关的测试用例进行分组，函数名可能包含下划线，如：`TestMyFunction_WhatIsBeingTested`
+我们遵循Go社区关于使用[MixedCaps作为方法名]的约定。有一个例外，为了对相关的测试用例进行分组，函数名可能包含下划线，如：`TestMyFunction_WhatIsBeingTested`
 
-  [MixedCaps 作为函数名]: https://golang.org/doc/effective_go.html#mixed-caps
+  [MixedCaps作为方法名]: https://golang.org/doc/effective_go.html#mixed-caps
+
+除此之外，方法还有如下限制
+- 方法体不能超过80行，如果超过需重构
+- 和常量变量命名一致，不要图简单使用完全不相关的方法名(最极端的例子是方法名如`a` `b` `c`等)
+
+  #### 反例
+  ```go
+  func f() {
+      fmt.Println("f")
+  }
+  ```
+  
+  #### 正例
+  ```go
+  func uploadFile() {
+    // 一看就知道是上传文件的方法
+  }
+  ```
 
 ### 换行
 
@@ -1284,6 +1311,7 @@ var   StudentName = "PUT"
 #### 反例
 
 ```go
+// 方法签名超过了IDE的竖线，阅读代码时需使用滚动条
 func upload(id int64, uploadType UploadType, key string, filename string, outputFilename string, name string) (err error) {
 	log.WithFields(log.Fields{
 		"id":             id,
