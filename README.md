@@ -64,7 +64,7 @@
 
 所有代码都应该通过`golint`和`go vet`的检查并无错误。我们建议您将IDE设置为
 
-- 保存时运行`goimports`
+- 保存时运行`goimports`
 - 运行`golint` 和`go vet`检查错误
 - 提交代码时勾选：`Go fmt`、`Rearrange code`、`Optimize imports`以及`Check TODO (Shwo All)`
 - 如果不习惯使用`Go fmt`可以使用IDE自带的代码格式化来完成
