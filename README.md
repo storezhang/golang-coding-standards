@@ -57,10 +57,10 @@
 
 ## 介绍
 
-样式是支配我们代码的惯例。术语`样式`有点用词不当，因为这些约定涵盖的范围不限于由`gofmt`替我们处理的源文件格式。本指南基于`Uber Golang开发规范`而制定，该指南最初由[Prashant Varanasi]和[Simon Newton]编写，目的是使一些同事能快速使用Golang。多年来，该指南已根据其他人的反馈进行了修改，其中许多是Golang的通用准则，而其他扩展准则依赖于下面外部的指南
+样式是支配我们代码的惯例。术语`样式`有点用词不当，因为这些约定涵盖的范围不限于由`gofmt`替我们处理的源文件格式。本指南基于`Uber Golang开发规范`而制定，该指南最初由Prashant Varanasi和Simon Newton编写，目的是使一些同事能快速使用Golang。多年来，该指南已根据其他人的反馈进行了修改，其中许多是Golang的通用准则，而其他扩展准则依赖于下面外部的指南
 
-1. [Effective Go](https://golang.org/doc/effective_go.html)
-2. [The Go common mistakes guide](https://github.com/golang/go/wiki/CodeReviewComments)
+1. [Effective Go](https://golang.org/doc/effective_go.html)
+2. [The Go common mistakes guide](https://github.com/golang/go/wiki/CodeReviewComments)
 
 所有代码都应该通过`golint`和`go vet`的检查并无错误。我们建议您将IDE设置为
 
