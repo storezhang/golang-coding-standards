@@ -1339,10 +1339,10 @@ func upload(
 ) (err error) {
   // 方法调用也适用于换行
   log.WithFields(log.Fields{
-  "id":             id,
+    "id":             id,
     "filename":       filename,
     "outputFilename": outputFilename,
-     "uploadType":     uploadType,
+    "uploadType":     uploadType,
     "key":            key,
     "name":           name,
   }).Info("开始上传文件")
