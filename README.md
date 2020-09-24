@@ -1307,9 +1307,9 @@ var   StudentName = "PUT"
 
 ### 换行
 
-代码每行不超过140个字符（参看IDE里那根竖线，代码字符超过就要换行）
+#### 代码每行不超过140个字符（参看IDE里那根竖线，代码字符超过就要换行）
 
-#### 反例
+##### 反例
 
 ```go
 // 方法签名超过了IDE的竖线，阅读代码时需使用滚动条
@@ -1325,7 +1325,7 @@ func upload(id int64, uploadType UploadType, key string, filename string, output
 }
 ```
 
-#### 正例
+##### 正例
 
 ```go
 // 尽量保持一行一个参数，原因是可以很方便的对参数进行详细解释（如果有必要的话）
@@ -1350,6 +1350,34 @@ func upload(
 ```
 
 注意：如果意义相近，可以将实参或者形参放在一起成对出现（参看[写出好代码的基本原则](#写出好代码的基本原则)里面的代码要有段落感）
+
+#### return之前加空行
+
+##### 反例
+
+```go
+if client, success, err = cr.GetById(id); nil != err {
+    return
+}
+if !success {
+    err = model.ErrObjectNotExist
+    return
+}
+```
+
+##### 正例
+
+```go
+if client, success, err = cr.GetById(id); nil != err {
+    return
+}
+if !success {
+    err = model.ErrObjectNotExist
+
+    // 添加空行，保证代码逻辑清晰
+    return
+}
+```
 
 ```go
 func callMethod(
