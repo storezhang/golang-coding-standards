@@ -1198,14 +1198,14 @@ func Upload(
     outputFilename string,
     name string,
 ) (err error) {
-log.WithFields(log.Fields{
-  "id":             id,
-  "filename":       filename,
-  "outputFilename": outputFilename,
-  "uploadType":     uploadType,
-  "key":            key,
-  "name":           name,
-}).Info("开始上传文件")
+    log.WithFields(log.Fields{
+        "id":             id,
+        "filename":       filename,
+        "outputFilename": outputFilename,
+        "uploadType":     uploadType,
+        "key":            key,
+        "name":           name,
+    }).Info("开始上传文件")
 }
 ```
 - 注意空格
@@ -2094,7 +2094,6 @@ m := map[T1]T2{
 基本准则是：在初始化时使用map初始化列表来添加一组固定的元素。否则使用`make`(如果可以，请尽量指定 map 容量)
 
 ### 字符串格式化
-
 如果你在函数外声明`Printf`函数的格式字符串，请将其设置为`const`常量。这有助于`go vet`对格式字符串执行静态分析
 
 #### 反例
