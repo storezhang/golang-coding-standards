@@ -1128,7 +1128,6 @@ make(map[T1]T2, hint)
 为`make()`提供容量信息（hint）尝试在初始化时调整map大小，这减少了在将元素添加到map时增长和分配的开销（**想想这是为什么，不懂去看看map的resize算法你就明白了**）。注意，map不能保证分配hint个容量。因此，即使提供了容量，添加元素仍然可以进行分配
 
 #### 反例
-
 ```go
 m := make(map[string]os.FileInfo)
 
@@ -1141,9 +1140,7 @@ for _, f := range files {
 ```
 
 #### 正例
-
 ```go
-
 files, _ := ioutil.ReadDir("./files")
 
 m := make(map[string]os.FileInfo, len(files))
@@ -1190,39 +1187,38 @@ for _, f := range files {
 - 不要为了注释而注释
   
   #### 反例
-  ```go
-  // call 这是方法调用
-  func call() {
-    fmt.Println("call")
-  }
-  ```
+```go
+// call 这是方法调用
+func call() {
+fmt.Println("call")
+}
+```
 
   #### 正例
-  ```go
-  // Upload 文件上传
-  // id 文件编号
-  // uploadType 上传类型
-  // ...
-  func Upload(
-    id int64,
-    uploadType UploadType,
-    key string,
-    filename string,
-    outputFilename string,
-    name string,
-  ) (err error) {
-    log.WithFields(log.Fields{
-      "id":             id,
-      "filename":       filename,
-      "outputFilename": outputFilename,
-      "uploadType":     uploadType,
-      "key":            key,
-      "name":           name,
-    }).Info("开始上传文件")
-  }
-  ```
+```go
+// Upload 文件上传
+// id 文件编号
+// uploadType 上传类型
+// ...
+func Upload(
+id int64,
+uploadType UploadType,
+key string,
+filename string,
+outputFilename string,
+name string,
+) (err error) {
+log.WithFields(log.Fields{
+  "id":             id,
+  "filename":       filename,
+  "outputFilename": outputFilename,
+  "uploadType":     uploadType,
+  "key":            key,
+  "name":           name,
+}).Info("开始上传文件")
+}
+```
 - 注意空格
-  
   #### 反例
   ```go
   //GET方法
@@ -1237,7 +1233,6 @@ for _, f := range files {
 - Public（公开）的方法必须添加注释
 
 ### 变量名
-
 给常量变量命名时，遵循以下原则
 
 - 使用驼峰命名
@@ -1248,25 +1243,21 @@ for _, f := range files {
 #### 反例
 
 ```go
-
 const a = "a"
 var   b = "b"
 
 const a_b = "a_b"
 var   c_d = "c_d"
-
 ```
 
 #### 正例
 ```go
-
 const MethodGET   = "GET"
 var   StudentName = "PUT"
 
 ```
 
 ### 包名
-
 当命名包时，请按下面规则选择一个名称
 
 - 全部小写，没有大写或下划线
@@ -1281,36 +1272,31 @@ var   StudentName = "PUT"
   [Go 包样式指南]: https://rakyll.org/style-packages/
 
 ### 方法
-
 我们遵循Go社区关于使用[MixedCaps作为方法名]的约定。有一个例外，为了对相关的测试用例进行分组，函数名可能包含下划线，如：`TestMyFunction_WhatIsBeingTested`
-
   [MixedCaps作为方法名]: https://golang.org/doc/effective_go.html#mixed-caps
 
 除此之外，方法还有如下限制
 - 方法体不能超过80行，如果超过需重构
 - 和常量变量命名一致，不要图简单使用完全不相关的方法名(最极端的例子是方法名如`a` `b` `c`等)
 
-  #### 反例
-  ```go
-  func f() {
-    // 靠，f是干嘛的，鬼才知道
-    //如果你的方法体过长，比如某公司一个方法6000多行代码，是的，你没看错，一个方法6000多行，而且还是知名公司
-  }
-  ```
-  
-  #### 正例
-  ```go
-  func uploadFile() {
-    // 一看就知道是上传文件的方法
-  }
-  ```
+#### 反例
+```go
+func f() {
+// 靠，f是干嘛的，鬼才知道
+// 如果你的方法体过长，比如某公司一个方法6000多行代码，是的，你没看错，一个方法6000多行，而且还是知名公司
+}
+```
+
+#### 正例
+```go
+func uploadFile() {
+// 一看就知道是上传文件的方法
+}
+```
 
 ### 换行
-
 #### 代码每行不超过140个字符（参看IDE里那根竖线，代码字符超过就要换行）
-
 ##### 反例
-
 ```go
 // 方法签名超过了IDE的竖线，阅读代码时需使用滚动条
 func upload(id int64, uploadType UploadType, key string, filename string, outputFilename string, name string) (err error) {
@@ -1326,7 +1312,6 @@ func upload(id int64, uploadType UploadType, key string, filename string, output
 ```
 
 ##### 正例
-
 ```go
 // 尽量保持一行一个参数，原因是可以很方便的对参数进行详细解释（如果有必要的话）
 func upload(
@@ -1350,35 +1335,6 @@ func upload(
 ```
 
 注意：如果意义相近，可以将实参或者形参放在一起成对出现（参看[写出好代码的基本原则](#写出好代码的基本原则)里面的代码要有段落感）
-
-#### return之前加空行
-
-##### 反例
-
-```go
-if client, success, err = cr.GetById(id); nil != err {
-    return
-}
-if !success {
-    err = model.ErrObjectNotExist
-    return
-}
-```
-
-##### 正例
-
-```go
-if client, success, err = cr.GetById(id); nil != err {
-    return
-}
-if !success {
-    err = model.ErrObjectNotExist
-
-    // 添加空行，保证代码逻辑清晰
-    return
-}
-```
-
 ```go
 func callMethod(
   username string, password string,
@@ -1393,6 +1349,32 @@ callMethod(
   year, month, day, // 月、日、年基本上一起出现
   hour, min, seconds, // 时、分、秒一样，基本上一起出现
 )
+```
+
+#### return之前加空行
+
+##### 反例
+```go
+if client, success, err = cr.GetById(id); nil != err {
+    return
+}
+if !success {
+    err = model.ErrObjectNotExist
+    return
+}
+```
+
+##### 正例
+```go
+if client, success, err = cr.GetById(id); nil != err {
+    return
+}
+if !success {
+    err = model.ErrObjectNotExist
+
+    // 添加空行，保证代码逻辑清晰
+    return
+}
 ```
 
 ### 导入别名
