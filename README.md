@@ -1190,7 +1190,7 @@ for _, f := range files {
 ```go
 // call 这是方法调用
 func call() {
-fmt.Println("call")
+    fmt.Println("call")
 }
 ```
 
@@ -1201,12 +1201,12 @@ fmt.Println("call")
 // uploadType 上传类型
 // ...
 func Upload(
-id int64,
-uploadType UploadType,
-key string,
-filename string,
-outputFilename string,
-name string,
+    id int64,
+    uploadType UploadType,
+    key string,
+    filename string,
+    outputFilename string,
+    name string,
 ) (err error) {
 log.WithFields(log.Fields{
   "id":             id,
