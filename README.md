@@ -1176,7 +1176,7 @@ for _, f := range files {
 - **禁止使用蹩脚英文注释**
 - 不要为了注释而注释
 
-  #### 反例
+#### 反例
 ```go
 // call 这是方法调用
 func call() {
@@ -1184,7 +1184,7 @@ func call() {
 }
 ```
 
-  #### 正例
+#### 正例
 ```go
 // Upload 文件上传
 // id 文件编号
@@ -1209,17 +1209,17 @@ func Upload(
 }
 ```
 - 注意空格
-  #### 反例
-  ```go
-  //GET方法
-  const MethodGET = "GET"
-  ```
+#### 反例
+```go
+//GET方法
+const MethodGET = "GET"
+```
 
-  #### 正例
-  ```go
-  // GET方法
-  const MethodGET = "GET"
-  ```
+#### 正例
+```go
+// GET方法
+const MethodGET = "GET"
+```
 - Public（公开）的方法必须添加注释
 
 ### 变量名
@@ -1231,7 +1231,6 @@ func Upload(
 - 不能使用特殊符号如$、_等
 
 #### 反例
-
 ```go
 const a = "a"
 var   b = "b"
@@ -1244,7 +1243,6 @@ var   c_d = "c_d"
 ```go
 const MethodGET   = "GET"
 var   StudentName = "PUT"
-
 ```
 
 ### 包名
@@ -1257,7 +1255,6 @@ var   StudentName = "PUT"
 - 不要用`common`、`util`、`shared`以及`lib`，这些是不好的，信息量不足的名称
 
 另请参阅[Package Names]和[Go 包样式指南]
-
   [Package Names]: https://blog.golang.org/package-names
   [Go 包样式指南]: https://rakyll.org/style-packages/
 
